@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>A.R.M Fiber Tech Ltd — Heavy-Duty Truck Parts & Components</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --kz-dark:   #0A1F44;
+    --kz-navy:   #1B2B4B;
+    --kz-cyan:   #00F0FF;
+    --kz-gold:   #C9A94D;
+    --cream:     #F0F5FA;
+    --cream2:    #E6EDF5;
+    --white:     #FFFFFF;
+    --text:      #0D1A2F;
+    --text-muted: #4A6FA5;
+    --light:     #7A8FB5;
+    --border:    #D4DFE8;
+    --border2:   #B8C9D9;
+    --accent:    var(--kz-cyan);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideRight {
+    from { transform: scaleX(0); } to { transform: scaleX(1); }
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(0,240,255,0.4); }
+    50%      { box-shadow: 0 0 0 10px rgba(0,240,255,0); }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.22s; }
+  .fade-up-3 { animation-delay: 0.36s; }
+  .fade-up-4 { animation-delay: 0.50s; }
+
+  /* ── TOP HEADER ── */
+  .topstrip {
+    background: var(--kz-dark);
+    padding: 16px 24px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .topstrip-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center;
+  }
+  .topstrip-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-sphere {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #00F0FF, #0077BB);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--white);
+    text-align: center; line-height: 1.1; padding: 4px;
+    box-shadow: 0 4px 16px rgba(0,240,255,0.4);
+  }
+  .logo-text {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .logo-text-main {
+    font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 2px;
+  }
+  .logo-text-rc {
+    font-size: 9px; color: var(--kz-cyan); letter-spacing: 1px;
+  }
+  .topstrip-center {
+    text-align: center;
+  }
+  .topstrip-title {
+    font-size: 12px; color: var(--kz-gold); font-weight: 600; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .topstrip-subtitle {
+    font-size: 10px; color: #8FAFCC; line-height: 1.4;
+  }
+  .topstrip-right {
+    display: flex; flex-direction: column; gap: 8px; text-align: right;
+  }
+  .topstrip-right a, .topstrip-right span {
+    font-size: 11px; color: var(--kz-cyan); text-decoration: none;
+    letter-spacing: 0.5px; font-weight: 500;
+  }
+  .topstrip-right a:hover { color: var(--kz-gold); }
+  
+  @media (max-width: 768px) {
+    .topstrip { padding: 12px 16px; }
+    .topstrip-inner { grid-template-columns: auto 1fr; gap: 12px; }
+    .topstrip-center { grid-column: 1 / -1; text-align: left; margin-top: 8px; }
+    .topstrip-right { text-align: left; }
+    .topstrip-title { font-size: 11px; }
+    .topstrip-subtitle { font-size: 9px; }
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(10,31,68,0.07);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--kz-cyan), #00D9FF);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 3px 10px rgba(0,240,255,0.3);
+  }
+  .nav-logo-text { line-height: 1.2; }
+  .nav-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--kz-dark);
+  }
+  .nav-logo-sub {
+    font-size: 10px; color: var(--light);
+    letter-spacing: 1px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a {
+    font-size: 13px; color: var(--text-muted);
+    text-decoration: none; padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    font-weight: 600; letter-spacing: 0.3px;
+  }
+  .nav-links a:hover { color: var(--kz-dark); background: var(--cream); }
+  .nav-cta {
+    background: var(--kz-cyan) !important;
+    color: var(--kz-dark) !important;
+    padding: 9px 18px !important;
+    border-radius: 5px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 3px 10px rgba(0,240,255,0.25);
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover {
+    background: #00D9FF !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(155deg, var(--kz-dark) 0%, #0D2850 55%, #1B2B4B 100%);
+    padding: 80px 24px 90px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,240,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-accent-line {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--kz-cyan), #00D9FF, var(--kz-gold), #00D9FF, var(--kz-cyan));
+    transform-origin: left;
+    animation: slideRight 1.2s 0.3s ease both;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,240,255,0.18);
+    border: 1px solid rgba(0,240,255,0.35);
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 11px; color: var(--kz-cyan);
+    letter-spacing: 2px; font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before { content: '●'; font-size: 8px; color: #00D9FF; }
+  h1.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    color: #FFFFFF;
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+  h1.hero-title span { color: var(--kz-cyan); }
+  .hero-sub {
+    font-size: 16px; color: #8FAFCC;
+    line-height: 1.75; margin-bottom: 32px;
+    max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--kz-cyan);
+    color: var(--kz-dark); text-decoration: none;
+    padding: 14px 26px; border-radius: 6px;
+    font-weight: 700; font-size: 14px;
+    box-shadow: 0 4px 16px rgba(0,240,255,0.4);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    border: 2px solid transparent;
+  }
+  .btn-primary:hover {
+    background: #00D9FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,240,255,0.5);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: #FFFFFF; text-decoration: none;
+    padding: 14px 26px; border-radius: 6px;
+    font-weight: 600; font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .hero-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    animation: fadeUp 0.9s 0.4s ease both;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 20px 16px;
+    text-align: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .hero-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.11);
+  }
+  .hero-card:first-child { grid-column: span 2; }
+  .hero-card-icon { font-size: 32px; margin-bottom: 10px; }
+  .hero-card-label {
+    font-size: 12px; color: var(--kz-cyan);
+    letter-spacing: 1px; margin-bottom: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .hero-card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: #FFFFFF; font-weight: 700;
+  }
+  .hero-card-sub { font-size: 11px; color: #7A92B8; margin-top: 3px; }
+
+  /* ── TRUST BAR ── */
+  .trustbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 24px;
+  }
+  .trustbar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 14px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .trust-icon {
+    width: 36px; height: 36px;
+    background: rgba(0,240,255,0.15);
+    border: 1px solid rgba(0,240,255,0.3);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; flex-shrink: 0;
+  }
+  .trust-text-label { font-size: 10px; color: var(--light); letter-spacing: 1px; text-transform: uppercase; }
+  .trust-text-value { font-size: 14px; color: var(--kz-dark); font-weight: 700; }
+  .trust-divider { width: 1px; height: 36px; background: var(--border); }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 10px; color: var(--kz-cyan); letter-spacing: 3px;
+    font-weight: 700; text-transform: uppercase;
+    margin-bottom: 10px; font-family: 'Source Sans 3', sans-serif;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    color: var(--kz-dark); font-weight: 700;
+    line-height: 1.25; margin-bottom: 14px;
+  }
+  .section-desc {
+    font-size: 15px; color: var(--text-muted);
+    max-width: 540px; line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  /* ── TRUCK CATEGORIES ── */
+  .categories-bg { background: var(--cream); }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .category-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 10px; padding: 24px 16px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(10,31,68,0.12);
+    border-color: var(--kz-cyan);
+  }
+  .category-icon {
+    font-size: 48px; margin-bottom: 12px;
+  }
+  .category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; color: var(--kz-dark);
+    font-weight: 700; margin-bottom: 6px;
+  }
+  .category-badge {
+    display: inline-block;
+    background: rgba(0,240,255,0.15);
+    color: var(--kz-cyan);
+    border: 1px solid rgba(0,240,255,0.3);
+    padding: 3px 10px; border-radius: 3px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; font-family: 'Source Sans 3', sans-serif;
+    margin-top: 10px;
+  }
+
+  /* ── SERVICES ── */
+  .services-bg { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(10,31,68,0.09);
+  }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(0,240,255,0.15);
+    border: 1px solid rgba(0,240,255,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 16px;
+  }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--kz-dark);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+  .service-tag {
+    display: inline-block;
+    margin-top: 14px;
+    background: rgba(0,240,255,0.15); color: var(--kz-cyan);
+    border: 1px solid rgba(0,240,255,0.3);
+    padding: 3px 10px; border-radius: 3px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* ── HOW TO ORDER ── */
+  .order-bg { background: var(--cream); }
+  .steps-track {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0; position: relative;
+  }
+  .steps-track::before {
+    content: '';
+    position: absolute; top: 32px; left: 10%; right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--border), var(--kz-cyan), var(--border));
+  }
+  .order-step { text-align: center; padding: 0 16px; position: relative; }
+  .step-num {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--kz-cyan);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 900; color: var(--kz-cyan);
+    box-shadow: 0 4px 16px rgba(0,240,255,0.15);
+    position: relative; z-index: 1;
+    background: var(--white);
+  }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; color: var(--kz-dark);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--kz-dark);
+    padding: 72px 24px;
+    position: relative; overflow: hidden;
+  }
+  .about-strip::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,240,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,240,255,0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .about-accent {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--kz-cyan), var(--kz-gold), var(--kz-cyan));
+  }
+  .about-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .about-label {
+    font-size: 10px; color: var(--kz-cyan);
+    letter-spacing: 3px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 12px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  h2.about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: #FFFFFF; font-weight: 700;
+    line-height: 1.25; margin-bottom: 18px;
+  }
+  h2.about-title span { color: var(--kz-cyan); }
+  .about-body {
+    font-size: 15px; color: #8FAFCC;
+    line-height: 1.8; margin-bottom: 28px;
+  }
+  .info-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 12px; color: var(--kz-cyan);
+    letter-spacing: 1px; font-family: 'Source Sans 3', sans-serif;
+    margin-bottom: 10px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .about-stat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 8px; padding: 22px 18px;
+    transition: background 0.2s;
+  }
+  .about-stat:hover { background: rgba(255,255,255,0.10); }
+  .about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; color: #FFFFFF; font-weight: 900;
+  }
+  .about-stat-num span { color: var(--kz-cyan); }
+  .about-stat-label { font-size: 12px; color: #8FAFCC; margin-top: 4px; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  }
+  .wa-float a {
+    display: flex; align-items: center; justify-content: center;
+    width: 58px; height: 58px;
+    background: #25D366; color: white;
+    border-radius: 50%; text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+    animation: pulse 2.5s infinite;
+    transition: transform 0.2s;
+  }
+  .wa-float a:hover { transform: scale(1.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--kz-dark);
+    padding: 60px 24px 0;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: #FFFFFF; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .footer-brand-desc {
+    font-size: 13px; color: #8FAFCC; line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .footer-contact {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(0,240,255,0.12);
+    border: 1px solid rgba(0,240,255,0.25);
+    padding: 7px 12px; border-radius: 4px;
+    font-size: 11px; color: var(--kz-cyan);
+    letter-spacing: 1px; font-family: 'Source Sans 3', sans-serif;
+  }
+  .footer-col-title {
+    font-size: 11px; color: var(--kz-cyan);
+    letter-spacing: 2px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 16px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 9px; }
+  .footer-col ul li a {
+    font-size: 13px; color: #8FAFCC;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--kz-cyan); }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .footer-copy { font-size: 11px; color: #4A6090; letter-spacing: 0.5px; }
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; color: var(--kz-cyan); font-style: italic;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { grid-template-columns: 1fr 1fr; }
+    .hero-card:first-child { grid-column: span 2; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .steps-track::before { display: none; }
+    .trustbar-inner { justify-content: flex-start; }
+    .trust-divider { display: none; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero { padding: 50px 20px 60px; }
+    .section { padding: 56px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="topstrip">
+  <div class="topstrip-inner">
+    <div class="topstrip-logo">
+      <div class="logo-sphere">A.R.M T.F</div>
+      <div class="logo-text">
+        <div class="logo-text-main">A.R.M TECH-FIBER</div>
+        <div class="logo-text-rc">RC: 1312501</div>
+      </div>
+    </div>
+    <div class="topstrip-center">
+      <div class="topstrip-title">HEAVY-DUTY TRUCK PARTS & COMPONENTS · JOS, PLATEAU STATE 🇳🇬</div>
+      <div class="topstrip-subtitle">Automobile Fiber & Interiors · Auto Repair · Parts Sales · Panel Beating</div>
+    </div>
+    <div class="topstrip-right">
+      <a href="tel:+2348037036376">📞 08037036376</a>
+      <a href="tel:+2348056273320">📞 08056273320</a>
+      <a href="mailto:Armtechfiber@gmail.com">✉️ Armtechfiber@gmail.com</a>
+      <a href="https://wa.me/2348037036376?text=Hello%20A.R.M%20Fiber%20Tech!">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">🏭</div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">A.R.M Fiber Tech Ltd</div>
+        <div class="nav-logo-sub">TRUCK PARTS · JOS</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#categories">Truck Models</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#order">How to Order</a>
+      <a href="#" class="nav-cta">📦 Request Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-accent-line"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fade-up fade-up-1">SPECIALIZED TRUCK PARTS MANUFACTURER</div>
+      <h1 class="hero-title fade-up fade-up-2">
+        OEM Quality <span>Truck Parts.</span><br/>Built for Nigerian Roads.
+      </h1>
+      <p class="hero-sub fade-up fade-up-3">
+        A.R.M Fiber Tech supplies original equipment manufacturer (OEM) quality parts for all major truck brands. From DAF to VOLVO, HOWO to MACK — we have the parts you need, at prices that make sense.
+      </p>
+      <div class="hero-btns fade-up fade-up-4">
+        <a href="#categories" class="btn-primary">🔍 View Truck Models</a>
+        <a href="https://wa.me/234XXXXXXXXXX" class="btn-secondary">💬 Get a Quote</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">🚛</div>
+        <div class="hero-card-label">TRUCK MODELS</div>
+        <div class="hero-card-value">12+ Major Brands</div>
+        <div class="hero-card-sub">DAF · HOWO · MACK · VOLVO · RENAULT & More</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🔧</div>
+        <div class="hero-card-label">PARTS AVAILABLE</div>
+        <div class="hero-card-value">500+ Components</div>
+        <div class="hero-card-sub">Engine · Transmission · Chassis & More</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🚚</div>
+        <div class="hero-card-label">DELIVERY</div>
+        <div class="hero-card-value">Nationwide & Regional</div>
+        <div class="hero-card-sub">Fast & secure logistics partnerships</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trustbar">
+  <div class="trustbar-inner">
+    <div class="trust-item">
+      <div class="trust-icon">📍</div>
+      <div>
+        <div class="trust-text-label">Location</div>
+        <div class="trust-text-value">B13 Nepa 7 Miles Zaria Road, Jos, Plateau State</div>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">✉️</div>
+      <div>
+        <div class="trust-text-label">Email</div>
+        <div class="trust-text-value">Armtechfiber@gmail.com</div>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">🏢</div>
+      <div>
+        <div class="trust-text-label">Business Type</div>
+        <div class="trust-text-value">OEM Parts Supplier</div>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">🔩</div>
+      <div>
+        <div class="trust-text-label">Specialization</div>
+        <div class="trust-text-value">Heavy-Duty Trucks</div>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">💬</div>
+      <div>
+        <div class="trust-text-label">Contact Methods</div>
+        <div class="trust-text-value">WhatsApp · Email · Call</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUCK CATEGORIES -->
+<section class="section categories-bg" id="categories">
+  <div class="section-inner">
+    <div class="section-label">TRUCK BRANDS WE SUPPORT</div>
+    <h2 class="section-title">12+ Major Truck Brands<br/>One Reliable Supplier</h2>
+    <p class="section-desc">We specialize in OEM-quality parts for the world's leading truck manufacturers. All truck models we support, complete parts catalog available upon request.</p>
+
+    <div class="categories-grid">
+
+      <div class="category-card">
+        <div class="category-icon">🚛</div>
+        <div class="category-name">DAF XF</div>
+        <div class="category-badge">PREMIUM PARTS</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🏗️</div>
+        <div class="category-name">HOWO SINOTRUCK</div>
+        <div class="category-badge">HIGH VOLUME</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🚚</div>
+        <div class="category-name">MACK CH</div>
+        <div class="category-badge">SPECIALIST</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🔧</div>
+        <div class="category-name">MACK VISION</div>
+        <div class="category-badge">PARTS READY</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">⚙️</div>
+        <div class="category-name">MACK R MODEL</div>
+        <div class="category-badge">IN STOCK</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🚛</div>
+        <div class="category-name">JAC Trucks</div>
+        <div class="category-badge">AVAILABLE</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🏭</div>
+        <div class="category-name">FAW Trucks</div>
+        <div class="category-badge">PARTS STOCK</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🔩</div>
+        <div class="category-name">MAN Diesel Evolution</div>
+        <div class="category-badge">FULL RANGE</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">⚡</div>
+        <div class="category-name">MAN TGS/TGA</div>
+        <div class="category-badge">SPECIALIST</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🚗</div>
+        <div class="category-name">LION Trucks</div>
+        <div class="category-badge">AVAILABLE</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🌟</div>
+        <div class="category-name">RENAULT</div>
+        <div class="category-badge">PARTS READY</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🎯</div>
+        <div class="category-name">VOLVO</div>
+        <div class="category-badge">OEM QUALITY</div>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">🚛</div>
+        <div class="category-name">ACTROS</div>
+        <div class="category-badge">FULL CATALOG</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-label">OUR SERVICES</div>
+    <h2 class="section-title">Complete Truck Parts<br/>Solutions for Your Fleet</h2>
+    <p class="section-desc">From single replacement parts to bulk fleet maintenance supplies — we handle it all with professional efficiency and competitive pricing.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">Parts Catalog Search</div>
+        <div class="service-desc">Browse complete OEM parts catalogs for your specific truck model. Part numbers, specifications, and availability in real-time.</div>
+        <span class="service-tag">✦ ONLINE BROWSING</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <div class="service-title">Bulk Supply & Distribution</div>
+        <div class="service-desc">Fleet maintenance contracts and bulk orders. Volume discounts available for transport companies and dealers.</div>
+        <span class="service-tag">✦ B2B WHOLESALE</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚚</div>
+        <div class="service-title">Nationwide Delivery</div>
+        <div class="service-desc">Fast and secure delivery across Nigeria. Regional shipping partnerships for same-day or next-day delivery in major cities.</div>
+        <span class="service-tag">✦ EXPRESS AVAILABLE</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📞</div>
+        <div class="service-title">Technical Support</div>
+        <div class="service-desc">Expert advice on part specifications, compatibility, and installation. Direct access to our technical team.</div>
+        <span class="service-tag">✦ FREE CONSULTATION</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="section order-bg" id="order">
+  <div class="section-inner">
+    <div class="section-label">SIMPLE PROCESS</div>
+    <h2 class="section-title">Order in 4 Easy Steps</h2>
+    <p class="section-desc">No complicated procedures. Direct communication with our team ensures fast processing and accurate parts delivery.</p>
+
+    <div class="steps-track">
+      <div class="order-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Identify Your Truck Model</div>
+        <div class="step-desc">Tell us your truck brand, model, and year. We'll confirm part availability instantly.</div>
+      </div>
+      <div class="order-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Request a Quote</div>
+        <div class="step-desc">Email or WhatsApp your parts list with quantities. We provide competitive pricing within 24 hours.</div>
+      </div>
+      <div class="order-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Confirm & Arrange Payment</div>
+        <div class="step-desc">Review the quote. Secure payment through bank transfer or mobile payment. Negotiate delivery timeline.</div>
+      </div>
+      <div class="order-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Receive & Install</div>
+        <div class="step-desc">Parts are shipped via trusted logistics. Tracking provided. Installation guides available on request.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 48px;">
+      <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20A.R.M%20Fiber%20Tech!%20I%20need%20truck%20parts%20for..." class="btn-primary" style="font-size:16px; padding: 16px 36px;">
+        💬 Get a Quote on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-accent"></div>
+  <div class="about-inner">
+    <div>
+      <div class="about-label">ABOUT A.R.M FIBER TECH</div>
+      <h2 class="about-title">Specialized OEM<br/>Truck Parts Supplier.<br/><span>Since 2024.</span></h2>
+      <p class="about-body">
+        A.R.M Fiber Tech is a professional truck parts supplier based in Jos, Plateau State. We specialize in sourcing and supplying OEM-quality components for all major truck manufacturers — from routine maintenance parts to specialized components.
+        <br/><br/>
+        Our mission is to provide Nigerian fleet operators and truck maintenance facilities with reliable, affordable access to genuine truck parts without the delays and costs of direct imports.
+      </p>
+      <div class="info-badge">
+        📍 &nbsp; <strong>Factory:</strong> B13 Nepa 7 Miles Zaria Road, Jos, Plateau State, Nigeria
+      </div>
+      <div class="info-badge">
+        📍 &nbsp; <strong>Workshop:</strong> Behind Jengre Filling Station, Off Deeper Life Junction, 7 Miles Zaria Road, Jos, Plateau State, Nigeria
+      </div>
+      <div class="info-badge">
+        ✉️ &nbsp; Armtechfiber@gmail.com | Armtechworkshop1@gmail.com
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">12<span>+</span></div>
+        <div class="about-stat-label">Truck Brands<br/>Supported</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">500<span>+</span></div>
+        <div class="about-stat-label">OEM Parts<br/>in Catalog</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">B2B</div>
+        <div class="about-stat-label">Fleet Contracts<br/>Available</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">🇳🇬</div>
+        <div class="about-stat-label">Nationwide<br/>Delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">A.R.M Fiber Tech Ltd</div>
+      <p class="footer-brand-desc">
+        Professional OEM truck parts supplier serving Nigerian fleet operators, transport companies, and maintenance facilities with reliable, affordable access to genuine components.
+      </p>
+      <div class="footer-contact">📍 Jos, Plateau State · Nigeria</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Truck Brands</div>
+      <ul>
+        <li><a href="#">DAF XF</a></li>
+        <li><a href="#">HOWO Sinotruck</a></li>
+        <li><a href="#">MACK (All Models)</a></li>
+        <li><a href="#">VOLVO</a></li>
+        <li><a href="#">RENAULT</a></li>
+        <li><a href="#">Other Brands</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul>
+        <li><a href="#">Parts Catalog</a></li>
+        <li><a href="#">Bulk Supply</a></li>
+        <li><a href="#">Nationwide Delivery</a></li>
+        <li><a href="#">Technical Support</a></li>
+        <li><a href="#">Fleet Contracts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <ul>
+        <li><a href="mailto:Armtechfiber@gmail.com">✉️ Armtechfiber@gmail.com</a></li>
+        <li><a href="mailto:Armtechworkshop1@gmail.com">✉️ Armtechworkshop1@gmail.com</a></li>
+        <li><a href="https://wa.me/234XXXXXXXXXX">💬 WhatsApp</a></li>
+        <li><a href="tel:+234XXXXXXXXXX">📞 Call Us</a></li>
+        <li><a href="#">📍 Visit Us</a></li>
+        <li><a href="#">Request Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 A.R.M Fiber Tech Ltd · Jos, Plateau State · All Rights Reserved</div>
+    <div class="footer-tagline">OEM Quality Truck Parts. Nigerian Reliable.</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<div class="wa-float">
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20A.R.M%20Fiber%20Tech!%20I%20need%20truck%20parts%20for..." target="_blank">💬</a>
+</div>
+
+</body>
+</html>

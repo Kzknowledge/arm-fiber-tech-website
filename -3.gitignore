@@ -1,0 +1,102 @@
+# ── ENVIRONMENT & SECRETS ──
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ── IDE & EDITOR FILES ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# ── OS-SPECIFIC FILES ──
+.DS_Store
+.AppleDouble
+.LSOverride
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ── NODE & BUILD ──
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+.next/
+
+# ── LOGS ──
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env.production.local
+
+# ── TEMPORARY FILES ──
+*.tmp
+*.temp
+.cache/
+tmp/
+
+# ── BACKUPS ──
+*.backup
+*.bak
+*.orig
+*~
+
+# ── VERCEL BUILD ──
+.vercel/
+.vercelignore
+
+# ── CLOUDFLARE WORKERS (if applicable) ──
+wrangler.toml.local
+
+# ── DATABASE BACKUPS ──
+*.sql
+*.db
+*.sqlite
+
+# ── SENSITIVE DATA ──
+.secrets/
+credentials.json
+config.local.json
+
+# ── SYSTEM FILES ──
+.directory
+.Spotlight-V100
+.TemporaryItems
+.VolumeIcon.icns
+.fseventsd
+._*
+
+# ── MACOS ──
+.AppleDouble
+.LSOverride
+*.DS_Store
+
+# ── WINDOWS ──
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── LOCAL TESTING ──
+test-local/
+local-builds/
+debug/
+
+# ── DEPLOYMENT ARTIFACTS (Vercel) ──
+.vercel/
+out/
+
+# Don't ignore these (prefix with !)
+!.gitkeep
+!.env.example
